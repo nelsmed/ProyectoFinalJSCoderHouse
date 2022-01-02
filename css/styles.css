@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+}
+
+body {
+    background-color: #f6f5dd;
+}
+
+header {
+    width: 100%;
+    background-color: #f6f5dd;
+}
+
+.logo {
+    background-color: #f6f5dd;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 5px 0px;
+    margin: 0;
+}
+
+h1 {
+    margin-top: 1rem;
+    background-color: #43bda0;
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    margin: auto 0;
+    text-align: center;
+}
+section {
+    justify-content: space-between;
+}
+
+.contenedorTapa {
+    transition: all 1s ease-in;
+}
+
+
+div p {
+    text-align: center;
+}
+
+.seleccionTapas {
+    display: none; 
+}
+
+.deshabilitarContenido {
+    transform:scale(.95);
+    opacity:0.5
+    
+}
+
+#seccionTapas, #seccionInterior, #seccionEncuadernacion, #seccionCarrito {
+    height: 100vh;
+}
+
+input.btn-seleccion {
+
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: hsl(347, 71%, 74%);
+    border-radius: 15px;
+    border: none;
+    margin: auto;
+}
+input.btnCancel {
+    border-style: none;
+    background-color: #e4234d;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-weight: 900;
+    color: white;
+}
+
+.card {
+    border-radius: 30px;
+}
+.card-img-top {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+
