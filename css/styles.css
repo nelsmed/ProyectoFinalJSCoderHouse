@@ -3,30 +3,40 @@
     padding: 0;
     font-family: "Quicksand", sans-serif;
 }
+:root {
+    --primario: #f6f5dd;
+    --secundario: #f3b0c3;
+    --terciario: #cbaacb;
+    --volver: #55cbcd;
+    --seleccion: #fee1e8;
+    --cancel: #ff968a;
+
+
+
+
+}
 
 body {
-    background-color: #f6f5dd;
+    background-color: var(--primario)
 }
 
 header {
     width: 100%;
-    background-color: #f6f5dd;
+    background-color: #43bda0;
 }
 
 .logo {
-    background-color: #f6f5dd;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding: 5px 0px;
-    margin: 0;
+    height: 30vh ;
+    position: absolute;
+    top: 10%;
+}
+.logo img {
+    width: 150px;
 }
 
+
 h1 {
-    margin-top: 1rem;
+    margin: 0;
     background-color: #43bda0;
     color: white;
     text-align: center;
@@ -36,15 +46,48 @@ h3 {
     margin: auto 0;
     text-align: center;
 }
-section {
-    justify-content: space-between;
+section#seccionTapas, #seccionInterior{
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-areas: 'banner auto '
+                          'banner auto'
+                          'banner auto'
+                          'banner btn  ';
+    
 }
 
+.presentacionTapas {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--seleccion);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: banner;
+}
+.presentacionTapas h3 {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+
+}
+.presentacionTapas p {
+    text-align: justify;
+    width: 80%;
+}
 .contenedorTapa {
     transition: all 1s ease-in;
 }
 
+#confirmarTapa {
+    position: relative;
+    grid-area: btn;
+    background-color: var(--volver);
+    border: none;
 
+}
 div p {
     text-align: center;
 }
@@ -59,8 +102,12 @@ div p {
     
 }
 
+.contenedorElemento {
+    width: auto;
+}
+
 #seccionTapas, #seccionInterior, #seccionEncuadernacion, #seccionCarrito {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 input.btn-seleccion {

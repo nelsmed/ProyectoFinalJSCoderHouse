@@ -1,7 +1,12 @@
 {
              "tapas": [ {"id":"1", "url":"img/Tapas/20211010_134701.jpg"},
                         {"id":"2", "url":"img/Tapas/20211010_135048.jpg"},
-                        {"id":"3", "url":"img/Tapas/20211010_135055.jpg"}],
+                        {"id":"3", "url":"./img/Tapas/acuareleable 21 front_page-0001.jpg"},
+                        {"id":"4", "url":"./img/Tapas/flores rosas bellas_page-0001.jpg"},
+                        {"id":"4", "url":"./img/Tapas/flores rosas bellas_page-0001.jpg"},
+                        {"id":"4", "url":"./img/Tapas/flores rosas bellas_page-0001.jpg"},
+                        {"id":"4", "url":"./img/Tapas/tremendo diseño mi fav_page-0001.jpg"},
+                        {"id":"5", "url":"img/Tapas/plumas_page-0001.jpg"}],
         "interiores": [ {"h5":"Agenda2022", "url":"./img/Interiores/cuatro.jpg"},
                         {"h5":"Pediatrico", "url":"./img/Interiores/pediatricoDos.jpg"},
                         {"h5":"Recetario", "url":"./img/Interiores/recetario.jpg"}],

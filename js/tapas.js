@@ -3,7 +3,7 @@ class Tapa {
         this.url = urlImg
     }
     cardTapa (){
-        return ` <div class="container contenedorElemento">
+        return ` <div class="container contenedorElemento m-1">
                     <div class="card" style="width: 18rem;">
                         <img src="${this.url}" class="card-img-top img__tapa" alt="Tapa Uno">
                         <div class="card-body d-flex justify-content-center">
