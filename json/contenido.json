@@ -7,9 +7,11 @@
                         {"id":"4", "url":"./img/Tapas/flores rosas bellas_page-0001.jpg"},
                         {"id":"4", "url":"./img/Tapas/tremendo diseño mi fav_page-0001.jpg"},
                         {"id":"5", "url":"img/Tapas/plumas_page-0001.jpg"}],
-        "interiores": [ {"h5":"Agenda2022", "url":"./img/Interiores/cuatro.jpg"},
-                        {"h5":"Pediatrico", "url":"./img/Interiores/pediatricoDos.jpg"},
-                        {"h5":"Recetario", "url":"./img/Interiores/recetario.jpg"}],
+        "interiores": [ {"id":"1","h5":"Agenda2022", "urlFirst":"./img/Interiores/Agenda/uno.jpg", "urlSecond":"./img/Interiores/Agenda/dos.jpg", "urlThird":"./img/Interiores/Agenda/tres.jpg", "info":"Agenda contiene 300 paginas, hojas boobkcel y tatan tanta"},
+                        {"id":"2","h5":"Pediatrico", "urlFirst":"./img/Interiores/pediatrico/pediatricoUno.jpg", "urlSecond":"./img/Interiores/pediatrico/pediatricoDos.jpg", "urlThird":"./img/Interiores/pediatrico/pediatricoTres.jpg", "info":"Pediatrico contiene 300 paginas, hojas boobkcel y tatan tanta"},
+                        {"id":"3","h5":"Recetario", "urlFirst":"./img/Interiores/recetario/recetario.jpg" , "urlSecond":"./img/Interiores/recetario/dos.jpg", "urlThird":"./img/Interiores/recetario/tres.jpg", "info":"Recetario contiene 300 paginas, hojas boobkcel y tatan tanta"},
+                        {"id":"4","h5":"Agenda Docente", "urlFirst":"./img/Interiores/agendaDocente/1.jpg" , "urlSecond":"./img/Interiores/agendaDocente/2.jpg", "urlThird":"./img/Interiores/agendaDocente/3.jpg", "info":"La agenda docente contiene 300 paginas, hojas boobkcel y tatan tanta"},
+                        {"id":"5","h5":"Viajes", "urlFirst":"./img/Interiores/viajes/viajes.jpg" , "urlSecond":"./img/Interiores/viajes/dos.jpg", "urlThird":"./img/Interiores/viajes/tres.jpg", "info":"Cuaderno Viajero contiene 300 paginas, hojas boobkcel y tatan tanta"}],
     "encuadernacion": [{"h5":"Costura Belga", "url":"./img/Encuadernacion/circuloCosido.jpg"},
                        {"h5":"Anillado Doble Ring", "url":"./img/Encuadernacion/circuloAnillado.jpg"}]
 }

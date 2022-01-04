@@ -37,3 +37,5 @@ function habilitarContenido(e) {
     $(e.target).closest('.contenedorElemento').siblings().removeClass('deshabilitarContenido')
     $(e.target).closest('.contenedorElemento').siblings().find('input').removeClass('d-none')
 }
+
+

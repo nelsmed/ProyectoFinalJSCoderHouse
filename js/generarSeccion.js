@@ -3,15 +3,9 @@ const generarSeccionTapas = () => {
     $.getJSON(URLGET, function (respuesta,estado) {
         if (estado === 'success') {
             let datos = respuesta["tapas"]
-            $('#seccionTapas').prepend(`<div class="presentacionTapas">
-                                            <div class="container logo d-flex justify-content-center">
-                                                <a href="#" class="logo__link">
-                                                    <img src="./img/logoSinFondo.png" alt="Ta Luego Cuadernos" class="logo__link--posicion">
-                                                </a>
-                                            </div>
-                                            <h3>Seleccione Diseño de Tapas</h3>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nobis mollitia pariatur minus, quasi minima magni praesentium suscipit non repellat incidunt inventore aperiam vero alias. Illo, similique. Eligendi, ipsa vero!</p>
-                                        </div>`)
+            $('nav').append(`<h3>Paso Uno: </h3>
+                             <span>Elija Un Diseño De Tapa </span>
+                             <p> Tapas de cartón de 2 mm cubiertas por impresiones laminadas o con papel de encuadernación y guardas de tela vinílica de encuadernación. Todos los diseños son propios </p>`)
             for (const dato of datos) {
                 let cardTapa = new Tapa(dato.url)
                 $('.tapas').prepend (cardTapa.cardTapa())
@@ -25,15 +19,6 @@ function generarSeccionInteriores() {
     if (arr.length==1) { //Una vez confirmada la tapa se genera el conteneido de la seccion interiores
         $('#seccionTapas').slideUp('slow',)
         $('#seccionInterior').toggle('slow')
-        $('#seccionInterior').prepend(`<div class="presentacionTapas">
-                                            <div class="container logo d-flex justify-content-center">
-                                                <a href="#" class="logo__link">
-                                                    <img src="./img/logoSinFondo.png" alt="Ta Luego Cuadernos" class="logo__link--posicion">
-                                                </a>
-                                            </div>
-                                            <h3>Seleccione Diseño de Tapas</h3>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nobis mollitia pariatur minus, quasi minima magni praesentium suscipit non repellat incidunt inventore aperiam vero alias. Illo, similique. Eligendi, ipsa vero!</p>
-                                        </div>`)
         $('.interiores').parent().prepend(`  <div class="mx-auto d-flex justify-content-center container my-3">
                                             <button class="btn btn-info w-40 text-center" id="volverTapa">Volver a elegir Tapa</button>
                                         </div>`)
@@ -41,11 +26,12 @@ function generarSeccionInteriores() {
             if (estado === 'success') {
                 let datos = respuesta["interiores"]
                 for (const dato of datos) {
-                    let cardInterior = new Interior(dato.url, dato.h5)
+                    const cardInterior = new Interior(dato.urlFirst, dato.urlSecond, dato.urlThird, dato.h5, dato.info, dato.id)
                     $('.interiores').prepend(cardInterior.cardInt())
                 }
             }
             $('.btnCancelInt').hide()
+            $(document).tooltip()
         })
         } else {
             alert('Debe elegir una diseño de tapa para avanzar')
@@ -67,6 +53,7 @@ function generarSeccionEncuadernacion() {
                 }
             }
             $('.btnCancelEnc').hide()
+            
         })
         
         } else {
