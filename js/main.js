@@ -3,7 +3,7 @@
 let arr = []
 const URLGET = "./json/contenido.json"
 $(document).ready(() => {
-    
+    $(document).tooltip()
     $('#seccionInterior').hide()
     $('#seccionEncuadernacion').hide()
     $('#seccionCarrito').hide()
