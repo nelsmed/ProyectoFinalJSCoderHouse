@@ -3,13 +3,23 @@
 let arr = []
 const URLGET = "./json/contenido.json"
 $(document).ready(() => {
+    
+    
+    
     $(document).tooltip()
+    
+    
+    $('nav').hide()
+    $('#seccionTapas').hide()
     $('#seccionInterior').hide()
     $('#seccionEncuadernacion').hide()
     $('#seccionCarrito').hide()
     
-    generarSeccionTapas()
-    
+    gererarSeccionHome()
+  
+   $('.home').  on('click', '#btnInicio', generarSeccionTapas())
+
+
     
     $('#seccionInterior').on('click', '#volverTapa', () => {
         if (arr.length == 2) {

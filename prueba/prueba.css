@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Quicksand", sans-serif;
-}
 :root {
     --paso1: #55cbcd;
     --paso2: #aa98f2;
@@ -11,161 +6,18 @@
     --fondoMapa: #f9b7c4;
     --amarillo: #f6f5dd;
 }
+*{
+    margin: 0;
+    padding: 0;
+}
+
 
 main {
-    display: flex;
+   
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--amarillo);
+ 
 }
-body {
-    background-color: var(--amarillo)
-}
-
-header {
-    width: 100%;
-    background-color: #43bda0;
-}
-
-
-
-h1 {
-    margin: 0;
-    background-color: #43bda0;
-    color: white;
-    text-align: center;
-}
-
-nav {
-    width: 25%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.paso1 {
-    background-color: var(--paso1);
-}
-.paso2 {
-    background-color: var(--paso2);
-}
-
-.paso3 {
-    background-color: var(--paso3);
-}
-
-nav .nav__cabecera {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.nav__btn img {
-    width: 6rem;
-    height: 6rem;
-}
-.tittle h2 {
-    font-size: 3rem;
-    color: white;
-}
-
-.nav__btn, .tittle {
-    margin: 3rem 1rem;
-}
-
-.nav__parrafo {
-    text-align: center;
-    font-size: 2rem;
-    color: white;
-    margin: 3rem;
-}
-
-.nav__arrow, .nav__logo {
-    display: flex;
-    justify-content: center;
-    margin: 3rem;
-}
-.nav__arrow img {
-    width: 15rem;
-}
-.nav__logo img{
-    width: 10rem;
-}
-
-
- .contenedorTapa {
-    transition: all 1s ease-in;
-}
-
-#confirmarTapa {
-    position: relative;
-    grid-area: btn;
-    background-color: var(#43bda0);
-    border: none;
-
-}
-div p {
-    text-align: center;
-}
-
-
-
-.deshabilitarContenido {
-    transform:scale(.95);
-    opacity:0.5
-    
-}
-
-.contenedorElemento {
-    width: auto;
-}
-
-#seccionTapas, #seccionInterior, #seccionEncuadernacion, #seccionCarrito {
-    min-height: 100vh;
-    width: 100%;
-}
-
-
-input.btn-seleccion {
-
-    width: 100px;
-    height: 30px;
-    color: white;
-    background-color: hsl(347, 71%, 74%);
-    border-radius: 15px;
-    border: none;
-    margin: auto;
-}
-input.btnCancel {
-    border-style: none;
-    background-color: #e4234d;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font-weight: 900;
-    color: white;
-}
-
-.card {
-    border-radius: 30px;
-}
-.card-img-top {
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-}
-
-.contenedorElementoInt {
-    position: relative;
-}
-
-.contenedorElementoInt label {
-    font-size: 1.4rem;
-    position: absolute;
-    z-index: 99;
-    right: 10px;
-    top: 10px;
-    color: var(--terciario);
-    
-}
-
-/*----------------------------------------------------Estilos de Home Page-----------------------------------*/
 
 .home {
     width: 100%;
@@ -379,3 +231,9 @@ input.btnCancel {
     }
    
 }
+    
+
+
+
+
+
