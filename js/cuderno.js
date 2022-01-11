@@ -1,25 +1,28 @@
 class Cuaderno {
-    constructor(id,tapa,interior,encuadernacion) {
+    constructor(id,tapa,interior, precio, encuadernacion) {
         this.id = id
         this.tapa = tapa
         this.interior = interior
+        this.precio = precio
         this.encuadernacion = encuadernacion
     }
     armarTarjeta() {
         return `  <div class="card mb-3 tarjetaCompra" style="max-width: 540px;">
-                                    <div class="row g-0">
-                                            <div class="col-md-4">
-                                                <img src="${this.tapa}" class="img-fluid rounded-start" alt="...">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title text-center">${this.interior}</h5>
-                                                    <p class='id'>${this.id}</p>
-                                                    <p class="card-text">${this.encuadernacion}</p>
-                                                    <button class='btn btn-danger container-md cancelarCompra' id='cancelarCompra'>Cancelar</button>
-                                                </div>
-                                            </div>
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="${this.tapa}" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <div class="card-body d-flex flex-column justify-content-between">
+                                            <h5 class="card-title text-center">${this.interior}</h5>
+                                            <p class="card-text">${this.encuadernacion}</p>
+                                            <p class="card-text">${this.precio}</p>
+                                            <button class='btn btn-danger container-md cancelarCompra' id='cancelarCompra'>Cancelar</button>
                                         </div>
-                                    </div>`
+                                    </div>
+                                </div>
+                    </div>`
     }
+    
+    
 }

@@ -20,24 +20,40 @@ body {
 }
 
 header {
-    width: 100%;
-    background-color: #43bda0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    background-color: var(--rosaLogo);
+    top:0%;
+    right: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;    
+    z-index: 99;
+}
+header span {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
 }
 
 
 
-h1 {
-    margin: 0;
-    background-color: #43bda0;
-    color: white;
-    text-align: center;
-}
+
 
 nav {
     width: 25%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
 }
 
 .paso1 {
@@ -51,7 +67,7 @@ nav {
     background-color: var(--paso3);
 }
 
-nav .nav__cabecera {
+.nav__cabecera {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,19 +89,49 @@ nav .nav__cabecera {
     text-align: center;
     font-size: 2rem;
     color: white;
-    margin: 3rem;
+    margin: 1rem;
 }
 
 .nav__arrow, .nav__logo {
     display: flex;
     justify-content: center;
-    margin: 3rem;
+    margin: 1rem 2rem;
 }
 .nav__arrow img {
     width: 15rem;
 }
 .nav__logo img{
     width: 10rem;
+}
+.nav__logo {
+    flex-direction: column;
+    align-items: center;
+}
+.nav__logo h1 {
+    font-size: 1.8rem;
+    margin: 1rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+#carrito {
+    position: relative;
+}
+
+#carrito span {
+    
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    z-index: 99;
+    top: 0;
+    right: 0;
+    
+
 }
 
 

@@ -7,6 +7,7 @@ function agregarElemento(e) {
     }
     if (e.target.classList.contains('agregarInterior')) {
         arr.push($(e.target).closest('.card').children('h5').text())
+        arr.push($(e.target).closest('.card').children('p').text())
         
     }
     if (e.target.classList.contains('encuadernacionTipo')) {
@@ -27,6 +28,13 @@ function botonCancelar (e) {
 
 //Funcion para que una vez cancelada la selección se elmimine del arreglo el elemento previamente seleccionado
 function eliminarItem() { 
+    if (arr.length == 3) {
+       for (let i=0; i < arr.length; i++ ) {
+           if (i>0) {
+               arr.pop()
+           }
+       }
+    }
     arr.pop()
     console.log(arr)
 }

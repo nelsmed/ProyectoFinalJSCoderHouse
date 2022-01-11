@@ -1,6 +1,7 @@
 
 const gererarSeccionHome = () => {
-    $('.home').append(`<div class="titulo">
+    $('header').hide()
+    return `<div class="titulo">
                             <h2>Bienvenides a Ta Luego Cuadernos</h2>
                             <div class="titulo__caja">
                                 <h3>¿Cómo Crear Tu Cuaderno?</h3>
@@ -47,8 +48,8 @@ const gererarSeccionHome = () => {
                             </div>
                         </div>
                         <div class="btnInicio">
-                            <button type="submit" id='btnInicio' >Iniciar APP</button>
-                        </div>`)
+                            <button type="submit" id='iniciarApp' >Iniciar APP</button>
+                        </div>`
 }
 
 const generarSeccionTapas = () => {
@@ -58,9 +59,15 @@ const generarSeccionTapas = () => {
             let datos = respuesta["tapas"]
             $('.home').toggle()
             $('nav').toggle()
+            $('header').show()
             $('#seccionTapas').toggle()
             $('nav').addClass('paso1')
-            $('nav').append(`<div class="nav__cabecera">
+            $('nav').append(`
+                            <div class="nav__logo">
+                                <img src="./img/Simbolos/logorosa.png" alt="">
+                                <h1> Tienda Online </h1>
+                            </div>
+                            <div class="nav__cabecera">
                                 <div class="nav__btn">
                                     <img src="./img/Simbolos/boton.png">
                                 </div>
@@ -74,8 +81,10 @@ const generarSeccionTapas = () => {
                             <div class="nav__arrow">
                                 <img src="../img/Simbolos/flecha.png" alt="">
                             </div>
-                            <div class="nav__logo">
-                                <img src="./img/Simbolos/logorosa.png" alt="">
+                            <div class='nav__buttons d-flex justify-content-center align-items-center flex-column'>
+                                <label for="form">Por disenos personalizados contactate</label>
+                                <button class="w-75 m-2 btn btn-primary" id='contacto'> Contacto  </button>
+                                <button class="w-75 m-2 btn btn-secondary" id='carrito'><span></span>Carrito</button>
                             </div>`)
             for (const dato of datos) {
                 let cardTapa = new Tapa(dato.url)
@@ -88,8 +97,9 @@ const generarSeccionTapas = () => {
 
 function generarSeccionInteriores() {
     if (arr.length==1) { //Una vez confirmada la tapa se genera el conteneido de la seccion interiores
-        $('#seccionTapas').fadeOut(300)
-        $('#seccionInterior').fadeIn(300)
+        $('#seccionTapas').fadeOut(600)
+        $('#seccionInterior').fadeIn(600)
+        
         $('nav').removeClass('paso1')
         $('nav').addClass('paso2')
         $('nav').find('h2').replaceWith(`<h2>Paso 2</h2>`)
@@ -102,7 +112,7 @@ function generarSeccionInteriores() {
             if (estado === 'success') {
                 let datos = respuesta["interiores"]
                 for (const dato of datos) {
-                    const cardInterior = new Interior(dato.urlFirst, dato.urlSecond, dato.urlThird, dato.h5, dato.info, dato.id)
+                    const cardInterior = new Interior(dato.urlFirst, dato.urlSecond, dato.urlThird, dato.h5, dato.info, dato.id, dato.precio)
                     $('.interiores').prepend(cardInterior.cardInt())
                 }
             }
@@ -114,7 +124,7 @@ function generarSeccionInteriores() {
         }
 }
 function generarSeccionEncuadernacion() {
-    if (arr.length==2) { //Una vez confirmada la tapa se genera el conteneido de la seccion interiores
+    if (arr.length==3) { //Una vez confirmado interior se genera el conteneido de la seccion interiores
         $('#seccionInterior').fadeOut(300)
         $('#seccionEncuadernacion').fadeIn(300)
         $('nav').removeClass('paso2')

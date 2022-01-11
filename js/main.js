@@ -1,6 +1,6 @@
 //La web consiste en el armado de un cuaderno a como lo quiera el usuario, elige la tapa, el interior y el tipo de encuadernacion.
 
-let arr = []
+let arr = [] //este array es donde se guardara la info de lo que va seleccionando el usuario. 
 const URLGET = "./json/contenido.json"
 $(document).ready(() => {
     
@@ -8,28 +8,30 @@ $(document).ready(() => {
     
     $(document).tooltip()
     
-    
+    //Se oculta todo el contenido de la web
     $('nav').hide()
     $('#seccionTapas').hide()
     $('#seccionInterior').hide()
     $('#seccionEncuadernacion').hide()
     $('#seccionCarrito').hide()
+    $('.carritoFloat').children('span').hide()
     
-    gererarSeccionHome()
-  
-   $('.home').  on('click', '#btnInicio', generarSeccionTapas())
+    
+    
+   
+    //Si hay datos guardados en local storage significa el usuario ya armo un cuaderno,no es necesaria la pagina de Home.
+    const storageContent = JSON.parse(localStorage.getItem('cuaderno')) || []
+    if (storageContent.length>0) {
+        generarSeccionTapas()
+        $('.carritoFloat').children('span').show()
+        } else {
+        $('.home').prepend(gererarSeccionHome())
+        $('.home').on('click','#iniciarApp',generarSeccionTapas)
+        $('header').children('span').hide()
+        
+    }
 
 
-    
-    $('#seccionInterior').on('click', '#volverTapa', () => {
-        if (arr.length == 2) {
-            eliminarItem()
-        }
-        $('.contenedorElementoInt').remove()
-        $('#volverTapa').remove()
-        $('#seccionTapas').toggle('slow')
-        $('#seccionInterior').slideUp('slow') 
-    } )
     
     //Seleccionar Tapa
     $( '#seccionTapas').on('click', '.agregarTapa', agregarElemento)
@@ -44,17 +46,17 @@ $(document).ready(() => {
     confirmarTapa.addEventListener('click', generarSeccionInteriores)                       
     
     
-    
-    
-    $('#seccionEncuadernacion').on('click', '#volverInterior', () => {
+    //Evento para volver a la seccion tapas
+    $('#seccionInterior').on('click', '#volverTapa', () => {
         if (arr.length == 3) {
             eliminarItem()
         }
-        $('.contenedorElementoEnc').remove()
-        $('#volverInterior').remove()
-        $('#seccionInterior').show().slideDown('slow')
-        $('#seccionEncuadernacion').slideUp('slow')
+        $('.contenedorElementoInt').remove()
+        $('#volverTapa').remove()
+        $('#seccionTapas').toggle('slow')
+        $('#seccionInterior').slideUp('slow') 
     } )
+    
     
     //Evento selección de tipo de interior
     $( '#seccionInterior').on('click', '.agregarInterior', agregarElemento)
@@ -67,35 +69,77 @@ $(document).ready(() => {
     //Confirmar seleccion Interior
     const confirmarInterior = document.getElementById('confirmarInterior')
     confirmarInterior.addEventListener('click', generarSeccionEncuadernacion)
-
+    
+    //Evento para volver a la seccion interiores
+    $('#seccionEncuadernacion').on('click', '#volverInterior', () => {
+        if (arr.length == 4) {
+            eliminarItem()
+        }
+        $('.contenedorElementoEnc').remove()
+        $('#volverInterior').remove()
+        $('#seccionInterior').show().slideDown('slow')
+        $('#seccionEncuadernacion').slideUp('slow')
+    } )
     
     
     //Seleccion de encuadernacion
     $( '#seccionEncuadernacion').on('click', '.encuadernacionTipo', agregarElemento)
     $( '#seccionEncuadernacion').on('click', '.encuadernacionTipo', botonCancelar)
     $( '#seccionEncuadernacion').on('click', '.encuadernacionTipo', deshabilitarContenido)
+    $( '#seccionEncuadernacion').on('click', '.encuadernacionTipo', ()=>$('header').fadeOut() )
     //Cancelar Seleccion de Encuadernacion
     $('#seccionEncuadernacion').on('click', '.btnCancel', eliminarItem)
     $('#seccionEncuadernacion').on('click', '.btnCancel', habilitarContenido)
     $('#seccionEncuadernacion').on('click', '.btnCancel', botonCancelar)
+    $('#seccionEncuadernacion').on('click', '.btnCancel', ()=>$('header').fadeIn())
     //Confirmar Seleccion de tipo de encuadernacion
     const confirmarEncuadernacion = document.getElementById('confirmarEncuadernacion')
     confirmarEncuadernacion.addEventListener('click', () => {
-            if (arr.length == 3) {
+            if (arr.length == 4) {
                 $('#seccionEncuadernacion').slideUp('slow')
                 $('#seccionCarrito').show().slideDown('slow')
                 
-                armarCarrito(arr[0],arr[1],arr[2]) // la funcion armarCarrito generara el contenido del carrito.
+                armarCarrito(arr) 
             } else {
                 alert('Debe elegir un tipo de encuadernacion para avanzar')
             }
-        })
-        
+    })
+    
+    
+    $('.carritoFloat').click(() => {
+       
+        $('nav').siblings().hide()
+        $('#seccionCarrito').show()
+        armarCarrito(arr)
+
+    })
+    $('#seccionCarrito').on('click', '#armadoEnProgreso', ()=>{
+        $('nav').siblings().hide()
+        $('header').show()
+        $('.tarjetaCompra').remove()
+        switch(arr.length) {
+            case 1:
+                if (document.querySelector('nav').classList.contains('clase2')){ //de este modo defino si ya se habia confirmado la seleccion de tapa o no
+                    $('#seccionInterior').show()
+                } else {$('#seccionTapas').show()}
+            break;
+            case 3:
+                if (document.querySelector('nav').classList.contains('clase2')){ 
+                    $('#seccionEncuadernacion').show()
+                } else {$('#seccionInterior').show()}
+            break;
+            default:
+                $('#seccionTapas').show()
+            break;
+
+        }
+    })
     
     const armarNuevo = document.getElementById('nuevoCuaderno') 
     armarNuevo.addEventListener('click', () =>  {
-        localStorage.setItem('cuaderno', JSON.stringify(arrayCarrito)) //se guarda en el local storage al array para armar el carrito y sumarlo al cuaderno nuevo
+        
         location.reload(true)
+       
     })
                 
             

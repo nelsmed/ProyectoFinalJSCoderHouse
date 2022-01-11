@@ -1,15 +1,20 @@
-function armarCarrito(link, int, enc) {
-    let cuaderno = {tapa: link, interior:int, encuadernacion:enc}
-    arrayCarrito = JSON.parse(localStorage.getItem('cuaderno')) || []
-    arrayCarrito.push(cuaderno)
-    console.log(arrayCarrito)
+
+
+function armarCarrito(arr) {
+    const arrayCarrito = JSON.parse(localStorage.getItem('cuaderno')) || []
+    if (arr.length === 4) {
+        $('#armadoEnProgreso').hide()
+        const cuaderno = {tapa: arr[0], interior:arr[1], precio:arr[2], encuadernacion:arr[3]}
+        arrayCarrito.push(cuaderno)
+        console.log(arrayCarrito)
+    } else {
+        $('.btnsCart').append(`<button class="btn btn-primary col-4 mx-3" id="armadoEnProgreso">Continuar con armado en progreso</button>`)
+    }
+    $('header').hide()
+    
     for (let i = 0; i < arrayCarrito.length; i++){
         let agregarCarrito = document.createElement('div')
-        let id = i + 1
-        let tapa = arrayCarrito[i].tapa
-        let interior = arrayCarrito[i].interior
-        let encuadernacion = arrayCarrito[i].encuadernacion
-        cuadernoStorage = new Cuaderno (id, tapa, interior, encuadernacion)
+        cuadernoStorage = new Cuaderno (i + 1, arrayCarrito[i].tapa, arrayCarrito[i].interior, arrayCarrito[i].precio, arrayCarrito[i].encuadernacion)
         let cardCarrito = cuadernoStorage.armarTarjeta()
         agregarCarrito.innerHTML = cardCarrito 
         $('.carrito').prepend(agregarCarrito)
@@ -19,5 +24,8 @@ function armarCarrito(link, int, enc) {
         arrayCarrito.splice((nroTarjeta-1),1)
         console.log(arrayCarrito)
         $(e.target).closest('.tarjetaCompra').hide()
+        localStorage.setItem('cuaderno', JSON.stringify(arrayCarrito))
     })
+    localStorage.setItem('cuaderno', JSON.stringify(arrayCarrito))
+    console.log(arrayCarrito)
 }
