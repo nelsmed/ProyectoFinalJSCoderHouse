@@ -98,32 +98,21 @@ $(document).ready(() => {
     $('#seccionEncuadernacion').on('click', '.btnCancel', ()=>$('header').fadeIn())
     //Confirmar Seleccion de tipo de encuadernacion
     const confirmarEncuadernacion = document.getElementById('confirmarEncuadernacion')
-    confirmarEncuadernacion.addEventListener('click', () => {
-            if (arr.length == 4) {
-                $('#seccionEncuadernacion').slideUp('slow')
-                $('#seccionCarrito').show().slideDown('slow')
-                
-                armarCarrito(arr) 
-            } else {
-                alert('Debe elegir un tipo de encuadernacion para avanzar')
-            }
-    })
+    confirmarEncuadernacion.addEventListener('click', guardarStorage)
+    confirmarEncuadernacion.addEventListener('click', () => contenidoApp.generarSeccionCarrito())
+    calcularTotal()
     
-    
-    
-    
+    //Eventos Seccion Carrito
+    $('#seccionCarrito').on('click','.cancelarCompra', cancelarCompra)
     $('nav').on('click', '#nuevoCuaderno',() => location.reload(true))
-   
-          
-            
-   
     $('nav').on('click','#terminarCompra', () => {
       $('.contacto__formulario').css('display','block')
       $('span').addClass('spanFormOff')
       $('span').removeClass('spanFormActive')
+
       })      
-   
       
+    
     //localStorage.clear() // una vez completada la compra se realiza limpieza del local storage para iniciar una compra desde 0.
     //location.reload(true)})
       

@@ -17,6 +17,7 @@ class Cuaderno {
                                             <h5 class="card-title text-center">${this.interior}</h5>
                                             <p class="card-text">${this.encuadernacion}</p>
                                             <p class="card-text">${this.precio}</p>
+                                            <p class="card-text id d-none">${this.id}</p>
                                             <button class='btn btn-danger container-md cancelarCompra' id='cancelarCompra'>Cancelar</button>
                                         </div>
                                     </div>

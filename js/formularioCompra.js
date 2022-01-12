@@ -1,8 +1,12 @@
-const inputs = document.querySelectorAll('input[required]')
-console.log(inputs)
+//Al momento de finalizar la compra, aparece un formulario donde, una vez completado, finalizaria el proceso de compra
+//Todo lo relacionado a la validacion del formulario se maneja en este archivo
+
+
+const inputs = document.querySelectorAll('input[required]')//solo se validan los campos obligatorios
+
+
 inputs.forEach(input => {
     input.addEventListener('keyup', validarFormulario)
-    
     const span= document.createElement('span')
     span.id = input.name
     span.textContent = input.title
@@ -26,7 +30,7 @@ const campos = {
 }
 
 function validarFormulario(e) {
-    console.log(e.target.name)
+    
     switch (e.target.name) {
         case 'Correo':
             
@@ -64,6 +68,6 @@ const validarCampo =  (expresion, input, campo) => {
         $(`span#${input.name}`).removeClass('spanFormOff')
         campos[campo] = false
     }
-    console.log(campos[campo])
+    
 }
 

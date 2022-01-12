@@ -119,6 +119,27 @@ class GenerarSecciones {
             alert('Debe elegir una diseño de tapa para avanzar')
         }
     }
+    generarSeccionCarrito() {
+        const contenidoStorage = JSON.parse(localStorage.getItem('cuaderno')) || []
+        if (arr.length === 4 ) {
+            vistasNav.navCarrito()
+            $('header').hide()
+            $('#seccionEncuadernacion').fadeOut('slow')
+            $('#seccionCarrito').fadeIn('slow')
+            let i=0
+            contenidoStorage.forEach(contenido => {
+                i += 1
+                const agregarCarrito = document.createElement('div')
+                const cuadernoStorage = new Cuaderno(i,contenido.tapa, contenido.interior, contenido.precio, contenido.encuadernacion )
+                const cardCarrito = cuadernoStorage.armarTarjeta()
+                agregarCarrito.innerHTML=cardCarrito
+                $('#seccionCarrito').prepend(agregarCarrito)
+            })
+            $('#seccionCarrito').append(`<h3>El total a pagar es: ${calcularTotal()}</h3>`)
+        } else {
+            alert('Debe elegir un tipo de encuadernacion para avanzar')
+        }
+    }
 }
     
     
