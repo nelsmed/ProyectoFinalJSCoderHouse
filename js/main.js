@@ -2,6 +2,8 @@
 
 let arr = [] //este array es donde se guardara la info de lo que va seleccionando el usuario. 
 const URLGET = "./json/contenido.json"
+const contenidoApp = new GenerarSecciones()
+const vistasNav = new Nav()
 $(document).ready(() => {
     
     
@@ -19,14 +21,16 @@ $(document).ready(() => {
     
     
    
-    //Si hay datos guardados en local storage significa el usuario ya armo un cuaderno,no es necesaria la pagina de Home.
+    //Si hay datos guardados en local storage significa que el usuario ya armo un cuaderno,no es necesaria la pagina de Home.
     const storageContent = JSON.parse(localStorage.getItem('cuaderno')) || []
     if (storageContent.length>0) {
-        generarSeccionTapas()
+        vistasNav.generarNav()
+        contenidoApp.generarSeccionTapas()
         $('.carritoFloat').children('span').show()
         } else {
-        $('.home').prepend(gererarSeccionHome())
-        $('.home').on('click','#iniciarApp',generarSeccionTapas)
+        $('.home').prepend(contenidoApp.gererarSeccionHome())
+        $('.home').on('click','#iniciarApp',() => vistasNav.generarNav())
+        $('.home').on('click','#iniciarApp',() => contenidoApp.generarSeccionTapas())
         $('header').children('span').hide()
         
     }
@@ -43,7 +47,7 @@ $(document).ready(() => {
     $('#seccionTapas').on('click', '.btnCancel', botonCancelar)
     //Confirmar seleccion tapa
     const confirmarTapa = document.getElementById('confirmarTapa')
-    confirmarTapa.addEventListener('click', generarSeccionInteriores)                       
+    confirmarTapa.addEventListener('click', () => contenidoApp.generarSeccionInteriores())                       
     
     
     //Evento para volver a la seccion tapas
@@ -68,7 +72,7 @@ $(document).ready(() => {
     $('#seccionInterior').on('click', '.btnCancel', botonCancelar)
     //Confirmar seleccion Interior
     const confirmarInterior = document.getElementById('confirmarInterior')
-    confirmarInterior.addEventListener('click', generarSeccionEncuadernacion)
+    confirmarInterior.addEventListener('click', () => contenidoApp.generarSeccionEncuadernacion())
     
     //Evento para volver a la seccion interiores
     $('#seccionEncuadernacion').on('click', '#volverInterior', () => {
@@ -106,49 +110,23 @@ $(document).ready(() => {
     })
     
     
-    $('.carritoFloat').click(() => {
-       
-        $('nav').siblings().hide()
-        $('#seccionCarrito').show()
-        armarCarrito(arr)
-
-    })
-    $('#seccionCarrito').on('click', '#armadoEnProgreso', ()=>{
-        $('nav').siblings().hide()
-        $('header').show()
-        $('.tarjetaCompra').remove()
-        switch(arr.length) {
-            case 1:
-                if (document.querySelector('nav').classList.contains('clase2')){ //de este modo defino si ya se habia confirmado la seleccion de tapa o no
-                    $('#seccionInterior').show()
-                } else {$('#seccionTapas').show()}
-            break;
-            case 3:
-                if (document.querySelector('nav').classList.contains('clase2')){ 
-                    $('#seccionEncuadernacion').show()
-                } else {$('#seccionInterior').show()}
-            break;
-            default:
-                $('#seccionTapas').show()
-            break;
-
-        }
-    })
     
-    const armarNuevo = document.getElementById('nuevoCuaderno') 
-    armarNuevo.addEventListener('click', () =>  {
-        
-        location.reload(true)
-       
-    })
-                
+    
+    $('nav').on('click', '#nuevoCuaderno',() => location.reload(true))
+   
+          
             
-    const terminarCompra = document.getElementById('terminarCompra')
-    terminarCompra.addEventListener('click', () => {
-    alert('gracias por completar su compra')
-    localStorage.clear() // una vez completada la compra se realiza limpieza del local storage para iniciar una compra desde 0.
-    location.reload(true)})
-
+   
+    $('nav').on('click','#terminarCompra', () => {
+      $('.contacto__formulario').css('display','block')
+      $('span').addClass('spanFormOff')
+      $('span').removeClass('spanFormActive')
+      })      
+   
+      
+    //localStorage.clear() // una vez completada la compra se realiza limpieza del local storage para iniciar una compra desde 0.
+    //location.reload(true)})
+      
 
 
 

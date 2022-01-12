@@ -33,6 +33,16 @@ header {
     margin: 2rem;    
     z-index: 99;
 }
+header button{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    
+}
+header button i {
+    color: #43bda0;
+}
 header span {
     position: absolute;
     width: 15px;
@@ -65,6 +75,29 @@ nav {
 
 .paso3 {
     background-color: var(--paso3);
+}
+
+.pasoCarrito {
+    background-color: #43bda0;
+}
+
+#nuevoCuaderno {
+    background-color: var(--fondoMapa);
+    border-radius: 10px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+#terminarCompra {
+    background-color: var(--paso1);
+    border-radius: 10px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }
 
 .nav__cabecera {
@@ -134,6 +167,18 @@ nav {
 
 }
 
+#armadoEnProgreso {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    margin: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--fondoMapa);
+    border-style: none;
+}
 
  .contenedorTapa {
     transition: all 1s ease-in;
@@ -423,5 +468,84 @@ input.btnCancel {
        
 
     }
+    form input, form textarea, form select {
+        margin: 10px 0;
+        width: 100%;
+      }
    
 }
+
+.contacto__formulario {
+    padding: 10px;
+    display: none;
+  }
+  
+  .contacto__titulo {
+    text-align: center;
+    color: white;
+    background-color: #f6f5dd;
+    margin: 15px;
+    color: #a7a7a7;
+  }
+  
+  form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  form input, form textarea, form select {
+    width: 60%;
+    margin: 16px auto;
+    border: none;
+    background-color: #f6f5dd;
+    border-bottom: 1.5px solid #43bda0;
+  }
+  form span {
+      color: red;
+      width: 60%;
+      border: none;
+      margin: auto;
+      margin-bottom: 16px;
+  }
+  
+  form textarea {
+    height: 100px;
+  }
+  .noValida {
+    box-shadow: rgba(255, 0, 0, 0.5) 0px 3px 8px;
+  }
+  .valida {
+    box-shadow: rgba(#43bda0, 0.5) 0px 3px 8px;
+  }
+  .contacto__formulario--btn {
+    width: 100px;
+    color: white;
+    background-color: #ec8ea2;
+    border-radius: 15px;
+    border: none;
+    -webkit-box-shadow: 1px 1px #a7a7a7;
+            box-shadow: 1px 1px #a7a7a7;
+    margin: auto;
+  }
+  
+  .contacto__formulario--btn:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+     -webkit-appearance: none; 
+     margin: 0; 
+    }
+    .spanFormOff{
+        display:none
+    }
+    .spanFormActive {
+        display: block;
+    }
+  

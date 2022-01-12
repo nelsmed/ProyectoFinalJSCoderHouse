@@ -56,12 +56,20 @@
             
             
             <div id="seccionCarrito" class="container">
-                <h3>Carrito</h3>
-                <div class="carrito">
-                </div>
-                <div class="d-flex justify-content-between container my-5 btnsCart">
-                    <button class="btn btn-success col-4 mx-3" id="nuevoCuaderno">Armar Nuevo Cuaderno</button>
-                    <button class="btn btn-warning  col-4" id="terminarCompra">Enviar a producción</button>
+                
+                
+                <div class="container-fluid contacto__formulario">
+                    <h2 class="contacto__titulo">Contacto</h2>
+                    <form class="container-fluid formulario" action="https://formsubmit.co/nelson_spigardi@hotmail.com" method="POST">
+                        <input class="formulario__box" type="email" name="Correo" required placeholder="email" id="correo" title="Ingrese un Mail Valido">
+                        <input class="formulario__box" type="text" name="Nombre" required placeholder="Nombre" id='nombre' title="Ingrese un nombre valido, mayor a 3 caracteres, sin numeros">
+                        <input class="formulario__box" type="text" name="Calle" required placeholder="Calle" id='calle' title="Ingrese un nombre de calle mayor a 3 caracteres">
+                        <input class="formulario__box" type="number" min="0" name="NumeroCalle" id='nroCalle'required placeholder="Numero de Casa" title="Ingrese solo valores numericos, no mas de 6 caracteres">
+                        <input class="formulario__box" type="text" name="Depto"  placeholder="Departamento (opcional)">
+                        <input class="formulario__box" type="number" min="0" name="Telefono" required placeholder="Telefono" id='tel' title="Ingrese un numero de telefono valido">
+                        <textarea type="text" name="Comentarios"  placeholder="Comentarios para el envio (opcional)"></textarea> 
+                        <input type="submit" class="contacto__formulario--btn" value="Enviar">
+                    </form>
                 </div>
             </section>
         </main>
@@ -76,6 +84,9 @@
     <script src="./js/funcionesGlobales.js"></script>
     <script src="./js/generarSeccion.js"></script>
     <script src="./js/armarCarrito.js"></script>
+    <script src="./js/formularioCompra.js"></script>
+    <script src="./js/vistasNav.js"></script>
+    <script src="./js/carritoFloat.js"></script>
     <script src="./js/main.js"></script>
     
 </body>
