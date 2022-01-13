@@ -19,7 +19,7 @@ class Nav {
             <p></p>
         </div>
         <div class="nav__arrow">
-            <img src="../img/Simbolos/flecha.png" alt="">
+            <img src="./img/Simbolos/flecha.png" alt="">
         </div>
         <div class="nav__span">
             <span >Recordá, el tamaño de nuestros cuadernos es A5 (148x210mm)</span>
@@ -36,7 +36,7 @@ class Nav {
         $('nav').find('p').replaceWith(`<p>Seleccioná Diseño de Tapas.</p>`)
         $('nav__logo').children().replaceWith(`<img src="./img/logorosa.png" alt="">`)
         $('nav').find('.nav__arrow').replaceWith(`<div class="nav__arrow">
-                                                    <img src="../img/Simbolos/flecha.png" alt="">
+                                                    <img src="./img/Simbolos/flecha.png" alt="">
                                                 </div>`)
         
        
@@ -50,7 +50,7 @@ class Nav {
         $('nav').find('p').replaceWith(`<p>Seleccioná el Interior.</p>`)
         $('nav__logo').children().replaceWith(`<img src="./img/logoceleste.png" alt="">`)
         $('nav').find('.nav__arrow').replaceWith(`<div class="nav__arrow">
-                                                    <img src="../img/Simbolos/flecha.png" alt="">
+                                                    <img src="./img/Simbolos/flecha.png" alt="">
                                                 </div>`)
         
     }
@@ -63,7 +63,7 @@ class Nav {
         $('nav').find('p').replaceWith(`<p>Seleccioná el Tipo de Encuadernación.</p>`)
         $('nav__logo').children().replaceWith(`<img src="./img/logoSinFond.png" alt="">`)
         $('nav').find('.nav__arrow').replaceWith(`<div class="nav__arrow">
-                                                    <img src="../img/Simbolos/flecha.png" alt="">
+                                                    <img src="./img/Simbolos/flecha.png" alt="">
                                                 </div>`)
     }
     navCarrito = () => {

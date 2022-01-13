@@ -6,44 +6,44 @@ class GenerarSecciones {
         <h2>Bienvenides a Ta Luego Cuadernos</h2>
         <div class="titulo__caja">
         <h3>¿Cómo Crear Tu Cuaderno?</h3>
-        <img src="../img/Simbolos/cuadro.png" alt="">
+        <img src="./img/Simbolos/cuadro.png" alt="">
         </div>
         </div>   
         <div class="mapa">
         <div class="mapa__paso1">
         <div class="mapa__paso1--title">
-        <img src="../img/Simbolos/botonconblanco.png" alt="">
+        <img src="./img/Simbolos/botonconblanco.png" alt="">
         <h3>Paso 1</h3>
         </div>
         <div class="mapa__paso1--caja">
-        <img src="../img/Simbolos/cajita.png" alt="" class="mapa__caja--img">
+        <img src="./img/Simbolos/cajita.png" alt="" class="mapa__caja--img">
         <p class="mapa__caja--cont">Elegí el diseño de tapa que más te guste.</p>            
         </div>
         </div>
         <div class="mapa__arrow">
-        <img src="../img/Simbolos/flecha.png" alt="" class="mapa__arrow--img">
+        <img src="./img/Simbolos/flecha.png" alt="" class="mapa__arrow--img">
         </div>
         <div class="mapa__paso2">
         <div class="mapa__paso2--title">
-        <img src="../img/Simbolos/botonconblanco.png" alt="">
+        <img src="./img/Simbolos/botonconblanco.png" alt="">
         <h3>Paso 2</h3>
         </div>
         <div class="mapa__paso2--caja">
-        <img src="../img/Simbolos/cajita.png" alt="" class="mapa__caja--img">
+        <img src="./img/Simbolos/cajita.png" alt="" class="mapa__caja--img">
         <p class="mapa__caja--cont">Seleccioná el interior.</p>            
         </div>
         </div>
         <div class="mapa__arrow">
-        <img src="../img/Simbolos/flecha.png" alt="" class="mapa__arrow--img">
+        <img src="./img/Simbolos/flecha.png" alt="" class="mapa__arrow--img">
         
         </div>
         <div class="mapa__paso3">
         <div class="mapa__paso3--title">
-        <img src="../img/Simbolos/botonconblanco.png" alt="">
+        <img src="./img/Simbolos/botonconblanco.png" alt="">
         <h3>Paso 3</h3>
         </div>
         <div class="mapa__paso3--caja">
-        <img src="../img/Simbolos/cajita.png" alt="" class="mapa__caja--img">
+        <img src="./img/Simbolos/cajita.png" alt="" class="mapa__caja--img">
         <p class="mapa__caja--cont">Tipo de Cuaderno: Cosido o Anillado.</p>            
         </div>
         </div>
