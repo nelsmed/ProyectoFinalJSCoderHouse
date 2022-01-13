@@ -71,3 +71,24 @@ const validarCampo =  (expresion, input, campo) => {
     
 }
 
+const validarEnvio = (e) => {
+    e.preventDefault()
+    if (campos.correo && campos.nombre && campos.calle && campos.nroCalle && campos.tel) {
+        document.querySelector('form').reset()
+        localStorage.clear()
+        contenidoApp.generarSeccionFormEnviado()
+    } else {
+        $('.formulario').find('p').remove()
+        $('textarea').after('<p>Error: Debe completar los campos obligatorios</p>')
+    }
+}
+
+const cancelarForm = ()=>{
+    $('#seccionCarrito').show()
+    $('#seccionFormulario').hide()
+    vistasNav.vaciarNav()
+    vistasNav.generarNav()
+    vistasNav.navCarrito()
+    document.querySelector('form').reset()
+}
+

@@ -21,6 +21,9 @@ class Nav {
         <div class="nav__arrow">
             <img src="../img/Simbolos/flecha.png" alt="">
         </div>
+        <div class="nav__span">
+            <span >Recordá, el tamaño de nuestros cuadernos es A5 (148x210mm)</span>
+        </div>
         `)
     }
     
@@ -30,7 +33,7 @@ class Nav {
         $('nav').removeClass('paso3')
         $('nav').removeClass('pasoCarrito')
         $('nav').find('h2').replaceWith(`<h2>Paso 1</h2>`)
-        $('nav').find('p').replaceWith(`<p>Seleccioná Disño de Tapas.</p>`)
+        $('nav').find('p').replaceWith(`<p>Seleccioná Diseño de Tapas.</p>`)
         $('nav__logo').children().replaceWith(`<img src="./img/logorosa.png" alt="">`)
         $('nav').find('.nav__arrow').replaceWith(`<div class="nav__arrow">
                                                     <img src="../img/Simbolos/flecha.png" alt="">
@@ -65,9 +68,13 @@ class Nav {
     }
     navCarrito = () => {
         $('nav').removeClass('paso3')
+        $('nav').removeClass('paso2')
+        $('nav').removeClass('paso1')
+        $('nav').removeClass('pasoFormulario')
+        $('nav').find('.nav__span').remove()
         $('nav').addClass('pasoCarrito')
         $('.nav__btn').remove()
-        $('nav').find('.nav__arrow').replaceWith(`<div class="d-flex justify-content-between container my-5 btnsCart">
+        $('nav').find('.nav__arrow').replaceWith(`<div class="d-flex justify-content-center container my-5 mx-auto btnsCart">
                                                     <button class=" col-6 mx-1" id="nuevoCuaderno">Armar Nuevo Cuaderno</button>
                                                     <button class="  col-6" id="terminarCompra">Finalizar Compra</button>
                                                 </div>`)
@@ -79,6 +86,18 @@ class Nav {
         $("#terminarCompra").mouseout((e)=>$(e.target).css('box-shadow','rgba(0, 0, 0, 0.24) 0px 3px 8px'))
        
         
+    }
+
+    navForm = () => {
+        $('nav').removeClass('paso1')
+        $('nav').removeClass('paso2')
+        $('nav').removeClass('paso3')
+        $('nav').removeClass('pasoCarrito')
+        $('nav').addClass('pasoFormulario')
+        $('nav').find('.btnsCart').replaceWith(`<button class='btn btn-danger container-md w-75 cancelarForm' id='cancelarCompra'>Cancelar</button>`)
+        $('nav').find('h2').replaceWith(`<h2>Completar Compra</h2>`)
+        $('nav').find('p').replaceWith(`<p>Complete el siguiente formulario para finalizar compra</p>`)
+
     }
 
     vaciarNav = () => $('nav').children().remove()

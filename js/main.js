@@ -16,6 +16,7 @@ $(document).ready(() => {
     $('#seccionInterior').hide()
     $('#seccionEncuadernacion').hide()
     $('#seccionCarrito').hide()
+    $('#seccionFormulario').hide()
     $('.carritoFloat').children('span').hide()
     
     
@@ -100,22 +101,37 @@ $(document).ready(() => {
     const confirmarEncuadernacion = document.getElementById('confirmarEncuadernacion')
     confirmarEncuadernacion.addEventListener('click', guardarStorage)
     confirmarEncuadernacion.addEventListener('click', () => contenidoApp.generarSeccionCarrito())
-    calcularTotal()
+    
+    //Evento para volver a elegir tipo de encuadernacion. 
+    $('#seccionCarrito').on('click', '#volverEnc', (e) => {
+        cancelarCompra($(e.target).last().find('#cancelarCompra'))//como al confirmar encuadernacion se genera la tarjeta de carrito, se debe eliminar.
+        $('#seccionCarrito').children().remove()
+        $(this).remove()
+        $('#seccionCarrito').slideUp('slow')
+        $('#seccionEncuadernacion').slideDown('slow')
+    } )
     
     //Eventos Seccion Carrito
     $('#seccionCarrito').on('click','.cancelarCompra', cancelarCompra)
     $('nav').on('click', '#nuevoCuaderno',() => location.reload(true))
-    $('nav').on('click','#terminarCompra', () => {
-      $('.contacto__formulario').css('display','block')
-      $('span').addClass('spanFormOff')
-      $('span').removeClass('spanFormActive')
-
-      })      
-      
     
-    //localStorage.clear() // una vez completada la compra se realiza limpieza del local storage para iniciar una compra desde 0.
-    //location.reload(true)})
-      
+    $('nav').on('click','#terminarCompra', () => {
+        const contenidoStorage = JSON.parse(localStorage.getItem('cuaderno')) || []
+        console.log(contenidoStorage)
+        if (calcularTotal() === 0 ){
+            $('#seccionCarrito').find('.errorCarrito').remove()
+            $('#seccionCarrito').append('<p class="errorCarrito">Error: Debe tener un elemento en el carrito para poder finalizar compra</p>')
+        } else {
+            $('#seccionCarrito').hide()
+            $('#seccionFormulario').show()
+            vistasNav.navForm()
+            $('span').addClass('spanFormOff')
+            $('span').removeClass('spanFormActive')}
+    })
+    
+    $('.contacto__formulario--btn').click(validarEnvio)
+    $('nav').on('click', '.cancelarForm', cancelarForm)
+    $('main').on('click', '.formularioEnviado__btnInicio', ()=>location.reload(true)) 
 
 
 

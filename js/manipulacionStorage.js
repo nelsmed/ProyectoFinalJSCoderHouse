@@ -1,8 +1,9 @@
 
 const guardarStorage = () => {
     const arrayCarrito = JSON.parse(localStorage.getItem('cuaderno')) || []
+    const idStorage = arrayCarrito.length
     if (arr.length === 4) {
-        const cuaderno = {tapa: arr[0], interior:arr[1], precio:arr[2], encuadernacion:arr[3]}
+        const cuaderno = {id: idStorage+1, tapa: arr[0], interior:arr[1], precio:arr[2], encuadernacion:arr[3]}
         arrayCarrito.push(cuaderno)
         console.log(arrayCarrito)
         localStorage.setItem('cuaderno', JSON.stringify(arrayCarrito))
@@ -13,10 +14,13 @@ const guardarStorage = () => {
 const cancelarCompra = (e) => {
     const contenidoStorage = JSON.parse(localStorage.getItem('cuaderno'))
     let nroTarjeta = parseInt($(e.target).siblings('.id').text())
-    contenidoStorage.splice((nroTarjeta-1),1)
+    contenidoStorage.splice(contenidoStorage.findIndex(e => e.id===nroTarjeta),1)
     $(e.target).closest('.tarjetaCompra').fadeOut()
     localStorage.setItem('cuaderno', JSON.stringify(contenidoStorage))
+    $('#seccionCarrito').find('h3').replaceWith(`<h3>El total a pagar es: $ ${calcularTotal()}</h3>`)
 }
+
+
 
 const calcularTotal = () => {
     const contenidoStorage = JSON.parse(localStorage.getItem('cuaderno'))

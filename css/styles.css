@@ -55,7 +55,7 @@ header span {
 
 
 
-
+/* -------------------------------------Estilos Nav Lateral---------------------------------------------------- */
 
 nav {
     width: 25%;
@@ -79,6 +79,17 @@ nav {
 
 .pasoCarrito {
     background-color: #43bda0;
+}
+
+.pasoFormulario {
+    background-color: var(--fondoMapa);
+}
+.pasoFormulario h2 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+.pasoFormulario p {
+    font-size: 1.5rem;
 }
 
 #nuevoCuaderno {
@@ -146,9 +157,19 @@ nav {
     color: white;
     font-weight: bold;
     text-align: center;
-
+}
+.nav__span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem 2rem 2rem 2rem;
 }
 
+.nav__span span{
+    text-align: center;
+    color: white;
+}
+/* ----------------------------------Estilos Carrito Float ---------------------------------------------*/
 #carrito {
     position: relative;
 }
@@ -179,9 +200,14 @@ nav {
     background-color: var(--fondoMapa);
     border-style: none;
 }
-
+/* ------------------------------------------Estilos Contenido APP Main------------------------------------------ */
  .contenedorTapa {
     transition: all 1s ease-in;
+}
+
+.errorTapas, .errorEnc, .errorInterior, .errorCarrito {
+    color: red;
+    text-align: center;
 }
 
 #confirmarTapa {
@@ -212,7 +238,9 @@ div p {
     width: 100%;
 }
 
-
+#seccionCarrito {
+    padding: 1rem;
+}
 input.btn-seleccion {
 
     width: 100px;
@@ -241,12 +269,15 @@ input.btnCancel {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: black;
+}
 
-.contenedorElementoInt {
+.contenedorElementoInt, .contenedorElementoEnc {
     position: relative;
 }
 
-.contenedorElementoInt label {
+.contenedorElementoInt label, .contenedorElementoEnc label {
     font-size: 1.4rem;
     position: absolute;
     z-index: 99;
@@ -396,6 +427,134 @@ input.btnCancel {
     border: 2px solid white;
 }
 
+
+/* --------------------------------Estilos Formulario---------------------------------------------------- */
+.formulario p {
+    color: red;
+}
+
+
+.contacto__formulario {
+    padding: 10px;
+}
+
+.contacto__titulo {
+    text-align: center;
+    color: white;
+    background-color: #f6f5dd;
+    margin: 15px;
+    color: #a7a7a7;
+}
+
+form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+form input, form textarea, form select {
+    width: 60%;
+    margin: 16px auto;
+    border: none;
+    background-color: #f6f5dd;
+    border-bottom: 1.5px solid #43bda0;
+}
+form span {
+    color: red;
+    width: 60%;
+    border: none;
+    margin: auto;
+    margin-bottom: 16px;
+}
+
+form textarea {
+    height: 100px;
+}
+.noValida {
+    box-shadow: rgba(255, 0, 0, 0.5) 0px 3px 8px;
+}
+.valida {
+    box-shadow: rgba(#43bda0, 0.5) 0px 3px 8px;
+}
+.contacto__formulario--btn {
+    width: 100px;
+    color: white;
+    background-color: #ec8ea2;
+    border-radius: 15px;
+    border: none;
+    -webkit-box-shadow: 1px 1px #a7a7a7;
+    box-shadow: 1px 1px #a7a7a7;
+    margin: auto;
+}
+
+.contacto__formulario--btn:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.spanFormOff{
+    display:none
+}
+.spanFormActive {
+    display: block;
+}
+
+
+/*------------------------------- Estilos Formulario Enviado----------------------------------------------  */
+.formularioEnviado {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.formularioEnviado__logo {
+    width: 25%;
+    margin: 1rem;
+    font-weight: 700;
+}
+.formularioEnviado__titulo {
+    font-size: 2rem;
+    margin: 1rem;
+    font-weight: 800;
+    color: #a7a7a7;
+}
+.formularioEnviado__texto {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #c0c0c0;
+}
+
+.formularioEnviado__btnInicio {
+    width: 10%;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin: 1rem;
+    border: none;
+    background-color: var(--fondoMapa);
+    font-weight: 600;
+    color: white;
+    padding: 4px;
+    cursor: pointer;
+}
+.formularioEnviado__btnInicio:hover {
+    background-color: white;
+    color: var(--fondoMapa);
+    
+}
+
+/* ----------------------------------------------Media Querys--------------------------------------------------- */
+
 @media screen and (max-width:769px) {
     
    
@@ -435,7 +594,9 @@ input.btnCancel {
 }
     
 @media screen and (max-width:426px) {
-    
+    body {
+        font-size: 10px;
+    }
    
     .titulo {
         transform: scale(0.5);
@@ -474,78 +635,3 @@ input.btnCancel {
       }
    
 }
-
-.contacto__formulario {
-    padding: 10px;
-    display: none;
-  }
-  
-  .contacto__titulo {
-    text-align: center;
-    color: white;
-    background-color: #f6f5dd;
-    margin: 15px;
-    color: #a7a7a7;
-  }
-  
-  form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  
-  form input, form textarea, form select {
-    width: 60%;
-    margin: 16px auto;
-    border: none;
-    background-color: #f6f5dd;
-    border-bottom: 1.5px solid #43bda0;
-  }
-  form span {
-      color: red;
-      width: 60%;
-      border: none;
-      margin: auto;
-      margin-bottom: 16px;
-  }
-  
-  form textarea {
-    height: 100px;
-  }
-  .noValida {
-    box-shadow: rgba(255, 0, 0, 0.5) 0px 3px 8px;
-  }
-  .valida {
-    box-shadow: rgba(#43bda0, 0.5) 0px 3px 8px;
-  }
-  .contacto__formulario--btn {
-    width: 100px;
-    color: white;
-    background-color: #ec8ea2;
-    border-radius: 15px;
-    border: none;
-    -webkit-box-shadow: 1px 1px #a7a7a7;
-            box-shadow: 1px 1px #a7a7a7;
-    margin: auto;
-  }
-  
-  .contacto__formulario--btn:hover {
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-     -webkit-appearance: none; 
-     margin: 0; 
-    }
-    .spanFormOff{
-        display:none
-    }
-    .spanFormActive {
-        display: block;
-    }
-  

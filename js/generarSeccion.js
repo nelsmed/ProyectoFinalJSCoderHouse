@@ -30,7 +30,7 @@ class GenerarSecciones {
         </div>
         <div class="mapa__paso2--caja">
         <img src="../img/Simbolos/cajita.png" alt="" class="mapa__caja--img">
-        <p class="mapa__caja--cont">Selecciona el interior.</p>            
+        <p class="mapa__caja--cont">Seleccioná el interior.</p>            
         </div>
         </div>
         <div class="mapa__arrow">
@@ -92,9 +92,11 @@ class GenerarSecciones {
                 
             })
         } else {
-            alert('Debe elegir una diseño de tapa para avanzar')
+            $('#seccionTapas').find('.errorTapas').remove()
+            $('.tapas').after('<p class="errorTapas">Error: Por favor seleccione un diseño de tapa para avanzar</p>')
         }
     }
+    
     generarSeccionEncuadernacion() {
         if (arr.length==3) { //Una vez confirmado interior se genera el conteneido de la seccion interiores
             $('#seccionInterior').fadeOut(300)
@@ -107,7 +109,7 @@ class GenerarSecciones {
                 if (estado === 'success') {
                     let datos = respuesta["encuadernacion"]
                     for (const dato of datos) {
-                        let cardEncuadernacion = new Encuadernacion(dato.url, dato.h5) 
+                        let cardEncuadernacion = new Encuadernacion(dato.url, dato.h5, dato.info) 
                         $('.encuadernacion').prepend(cardEncuadernacion.cardEnc())
                     }
                 }
@@ -116,30 +118,47 @@ class GenerarSecciones {
             })
             
         } else {
-            alert('Debe elegir una diseño de tapa para avanzar')
+            $('#seccionInterior').find('.errorInterior').remove()
+            $('.interiores').after('<p class="errorInterior">Error: Por favor seleccione un diseño de interior para avanzar</p>')
+
         }
     }
     generarSeccionCarrito() {
         const contenidoStorage = JSON.parse(localStorage.getItem('cuaderno')) || []
         if (arr.length === 4 ) {
             vistasNav.navCarrito()
+
             $('header').hide()
             $('#seccionEncuadernacion').fadeOut('slow')
+            $('#armadoEnProgreso').hide()
+
             $('#seccionCarrito').fadeIn('slow')
-            let i=0
+            $('#seccionCarrito').prepend(`  <div class="mx-auto d-flex justify-content-center container my-3">
+            <button class="btn btn-info w-40 text-center" id="volverEnc">Volver a Encuadernacion</button>
+            </div>`)
             contenidoStorage.forEach(contenido => {
-                i += 1
                 const agregarCarrito = document.createElement('div')
-                const cuadernoStorage = new Cuaderno(i,contenido.tapa, contenido.interior, contenido.precio, contenido.encuadernacion )
+                const cuadernoStorage = new Cuaderno(contenido.id,contenido.tapa, contenido.interior, contenido.precio, contenido.encuadernacion )
                 const cardCarrito = cuadernoStorage.armarTarjeta()
                 agregarCarrito.innerHTML=cardCarrito
-                $('#seccionCarrito').prepend(agregarCarrito)
+                $('#seccionCarrito').append(agregarCarrito)
             })
-            $('#seccionCarrito').append(`<h3>El total a pagar es: ${calcularTotal()}</h3>`)
+            $('#seccionCarrito').append(`<h3>El total a pagar es: $${calcularTotal()}</h3>`)
         } else {
-            alert('Debe elegir un tipo de encuadernacion para avanzar')
+            $('#seccionEncuadernacion').find('.errorEnc').remove()
+            $('.encuadernacion').after('<p class="errorEnc">Error: Por favor seleccione un tipo de encuadernación para avanzar</p>')
+
         }
     }
+
+    generarSeccionFormEnviado(){
+        $('main').children().fadeOut()
+        $('main').prepend(`<div class="formularioEnviado">
+                                <h3 class="formularioEnviado__titulo">Gracias por elegirnos</h3>
+                                <p class="formularioEnviado__texto">A la brevedad nos comunicaremos para coordinar medio de pago y envío</p>
+                                <img src="../img/logoSinFondo.png" alt="" class="formularioEnviado__logo">
+                                <button class="formularioEnviado__btnInicio">Volver a Home</button>
+                            </div>`)}
 }
     
     

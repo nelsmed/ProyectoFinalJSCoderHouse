@@ -7,7 +7,7 @@ class Cuaderno {
         this.encuadernacion = encuadernacion
     }
     armarTarjeta() {
-        return `  <div class="card mb-3 tarjetaCompra" style="max-width: 540px;">
+        return `  <div class="card my-3 tarjetaCompra" style="max-width: 540px;">
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img src="${this.tapa}" class="img-fluid rounded-start" alt="...">
