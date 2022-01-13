@@ -1,5 +1,5 @@
 class Nav {
-    
+   
     generarNav = () => {
         $('nav').show()
         $('nav').append(`

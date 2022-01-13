@@ -5,7 +5,7 @@ const guardarStorage = () => {
     if (arr.length === 4) {
         const cuaderno = {id: idStorage+1, tapa: arr[0], interior:arr[1], precio:arr[2], encuadernacion:arr[3]}
         arrayCarrito.push(cuaderno)
-        console.log(arrayCarrito)
+       
         localStorage.setItem('cuaderno', JSON.stringify(arrayCarrito))
 
     }

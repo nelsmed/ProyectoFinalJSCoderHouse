@@ -19,7 +19,7 @@ $(document).ready(() => {
     $('#seccionFormulario').hide()
     $('.carritoFloat').children('span').hide()
     
-    
+   
     
    
     //Si hay datos guardados en local storage significa que el usuario ya armo un cuaderno,no es necesaria la pagina de Home.
@@ -116,8 +116,8 @@ $(document).ready(() => {
     $('nav').on('click', '#nuevoCuaderno',() => location.reload(true))
     
     $('nav').on('click','#terminarCompra', () => {
-        const contenidoStorage = JSON.parse(localStorage.getItem('cuaderno')) || []
-        console.log(contenidoStorage)
+        
+        
         if (calcularTotal() === 0 ){
             $('#seccionCarrito').find('.errorCarrito').remove()
             $('#seccionCarrito').append('<p class="errorCarrito">Error: Debe tener un elemento en el carrito para poder finalizar compra</p>')

@@ -1,4 +1,4 @@
-
+console
 //Funcion para seleccionar el elemento correspondiente de cada seccion
 function agregarElemento(e) {
     if (e.target.classList.contains('agregarTapa')) {
@@ -36,7 +36,7 @@ function eliminarItem() {
        }
     }
     arr.pop()
-    console.log(arr)
+   
 }
 
 
